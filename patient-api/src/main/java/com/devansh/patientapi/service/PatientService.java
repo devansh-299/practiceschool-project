@@ -10,6 +10,10 @@ public interface PatientService {
 
 	public Patient getCourse(long parseLong);
 
-	public Patient addPatient(Patient patient);
+	public String addPatient(Patient patient);
+
+	public String updatePatient(Patient patient);
+
+	public void deletePatient(long parseLong);
 	
 }
