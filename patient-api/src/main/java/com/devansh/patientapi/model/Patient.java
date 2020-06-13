@@ -1,9 +1,12 @@
 package com.devansh.patientapi.model;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.devansh.patientapi.vault.TransitConverter;
 
 @Entity
 public class Patient {
@@ -11,9 +14,12 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Convert(converter = TransitConverter.class)
 	private String name;
 	private long age;
+	@Convert(converter = TransitConverter.class)
 	private String gender;
+	@Convert(converter = TransitConverter.class)
 	private String description;
 	
 	public Patient(long id, String name, long age, String gender, String description) {
