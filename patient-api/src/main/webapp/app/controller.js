@@ -10,13 +10,13 @@ function GeneralController($scope, Patient) {
 	$scope.savePatient = function() {
 		
 		if ($scope.patient.id !== undefined) {
-			Patient.update($scope, patient, function() {
+			Patient.update($scope.patient, function() {
 				$scope.patients = Patient.query();
 				$scope.patient = {};
 				$scope.buttonText = "Submit";
 			});
 		} else {
-			Patient.save($scope, patient, function() {
+			Patient.save($scope.patient, function() {
 				$scope.patients = Patient.query();
 				$scope.patient = {};
 			});
