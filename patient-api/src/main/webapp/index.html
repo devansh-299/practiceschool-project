@@ -1,95 +1,98 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Patient Database</title>
-		<script type="text/javascript"
-			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-		<script type="text/javascript"
-			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
-		<script type="text/javascript" src="app/app.js"></script>
-		<script type="text/javascript" src="app/controller.js"></script>
-		<script type="text/javascript" src="app/service.js"></script>
-		
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		
-		<!-- Optional theme -->
-		<link rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-		
-		<!-- Latest compiled and minified JavaScript -->
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	<body data-ng-app="PatientApiApplication" data-ng-controller="GeneralController">
-	
-		<div class="panel panel-default">
-			<div class="panel-heading">Patients</div>
-			<div class="panel-body">
-				<form class="col-md-4" data-ng-submit="savePatient()">
-					<div class="form-group">
-						<label for="patientName">Patient Name</label> <input type="text"
-							data-ng-model="patient.name" class="form-control" id="patientName"
-							placeholder="Patient Name">
-					</div>
-					<div class="form-group">
-						<label for="patientAge">Age</label> <input type="text"
-							data-ng-model="patient.age" class="form-control"
-							id="patientAge" placeholder="Age">
-					</div>
-	
-					<div class="form-group">
-						<label for="patientGender">Gender</label> 
-						<input type="text"
-							data-ng-model="patient.gender" class="form-control"
-							id="patientGender" placeholder="Gender">
-					</div>
-					
-					<div class="form-group">
-						<label for="patientDescription">Description</label> 
-						<input type="text"
-							data-ng-model="patient.description" class="form-control"
-							id="patientDescription" placeholder="Description">
-					</div>
-	
-					<button type="submit" class="btn btn-default">{{buttonText}}</button>
-					
-				</form>
-	
-				<div class="table-responsive col-md-6">
-					<table class="table table-striped">
-						<tr>
-							<th>Name</th>
-							<th>Age</th>
-							<th>Gender</th>
-							<th>Description</th>
-							<th></th>
-						</tr>
-						<tr data-ng-repeat="patient in patients">
-							<td>{{patient.name}}</td>
-							<td>{{patient.age}}</td>
-							<td>{{patient.gender}}</td>
-							<td>{{patient.description}}</td>
-							<td>
-								<button type="button" class="btn btn-default"
-									data-ng-click="updatePatientInit(patient)">
-									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-								</button>
-								<button type="button" class="btn btn-default"
-									data-ng-click="deletePatient(patient)">
-									<span class="glyphicon glyphicon-remove-circle"
-										aria-hidden="true"></span>
-								</button>
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	
-	</body>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+    crossorigin="anonymous">
+    
+    <title>NIC-Database</title>
+
+    <!-- custom styling -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <header class="headerindex">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto ">
+            <!-- headingtext is the name of custom class -->
+            <div class ="display-4 headingtext"> National Informatics Centre - Delhi</div>
+          </div>
+          
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="container">
+      <h1 class="">Home </h1>
+      <small>Introduction to the company and our services</small>
+      <hr>
+      <div class="jumbotron">
+        <div class="display-4">Hello World</div>
+        <p>Content within the Jumbotron</p>
+        <p><a class="btn btn-primary" href="main.html">Get Started</a></p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><img src="img/img1_home.jpg" class="img-fluid"></div>
+          <div class="col-md-8">
+            <span class="h3">Welcome to this template..</span><hr>
+            <p> This is where you enter some content regarding the image.
+          </div>
+        </div>
+        <hr>
+        <div class="row mb-4 mt-4">
+          <div class="col-md-4"><img src="img/img2_home.jpg" class="img-fluid"></div>
+          <div class="col-md-4"><img src="img/img3_home.jpg" class="img-fluid"></div>
+          <div class="col-md-4"><img src="img/img4_home.jpg" class="img-fluid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer content -->
+	<footer>
+		<div class="container-fluid bg-dark">
+		  <div class="row">
+		    <div class="col-md-8 mx-auto">
+		      <p class="text-muted text-center mt-5">Copyright &copy; devansh 2020</p>
+		      <ul class="list-inline text-center">
+		        <li class="list-inline-item">
+		         <a href="https://github.com/devansh-299">
+		         	<i class="fa fa-github text-light"></i>
+		         </a>
+		        </li>
+		        <li class="list-inline-item">
+		        	<a href="https://www.linkedin.com/in/devansh-aggarwal-437967192/">
+		        		<i class="fa fa-linkedin text-light"></i>
+		        	</a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>          
+	</footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+    crossorigin="anonymous"></script>
+  </body>
 </html>

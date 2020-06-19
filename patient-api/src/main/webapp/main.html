@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<title>Patient Database</title>
+		
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+		<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    	crossorigin="anonymous">
+    	
+		<!-- Font Awesome CDN-->
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+		rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+		crossorigin="anonymous">
+    	
+		<!-- scripts -->
+		<script type="text/javascript"
+			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+		<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/controller.js"></script>
+		<script type="text/javascript" src="app/service.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+
+		
+		 <!-- custom styling -->
+    	<link rel="stylesheet" href="css/style.css">
+
+
+
+			
+	</head>
+	
+	<body data-ng-app="PatientApiApplication" data-ng-controller="GeneralController">
+	
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+     		 <!-- container is a built-in bootstrap class -->
+			<div class="container">
+		        <!-- Default bootstrap class for Main Company Icon/Name -->
+		        <a href="index.html" class="navbar-brand">National Informatics Centre</a>
+		
+		        <!-- for the toggle menu button -->
+		        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navitems">
+		          <!-- for the toggler icon -->
+		          <span class="navbar-toggler-icon"></span>
+		        </button>
+		
+		        <div class="collapse navbar-collapse" id="navitems">
+		          <ul class="navbar-nav ml-auto">
+		            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+		            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+		          </ul>
+				</div>
+	      </div>
+		</nav>
+	
+		<header class="headermain">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 mx-auto ">
+          				<!-- headingtext is the name of custom class -->
+          				<div class ="display-4 headingtext"> Secure Patient Database </div>
+          				<span class="text-muted">Developed by - Devansh</span>
+        			</div>
+        		</div>
+      		</div>
+    	</header>
+	
+		<!-- Main content -->
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+				<form class="col-md-4" data-ng-submit="savePatient()">
+					<div class="form-group">
+						<label for="patientName">Patient Name</label> <input type="text"
+							data-ng-model="patient.name" class="form-control" id="patientName"
+							placeholder="Patient Name">
+					</div>
+					<div class="form-group">
+						<label for="patientAge">Age</label> <input type="text"
+							data-ng-model="patient.age" class="form-control"
+							id="patientAge" placeholder="Age">
+					</div>
+	
+					<div class="form-group">
+						<label for="patientGender">Gender</label> 
+						<input type="text"
+							data-ng-model="patient.gender" class="form-control"
+							id="patientGender" placeholder="Gender">
+					</div>
+					
+					<div class="form-group">
+						<label for="patientDescription">Description</label> 
+						<input type="text"
+							data-ng-model="patient.description" class="form-control"
+							id="patientDescription" placeholder="Description">
+					</div>
+	
+					<button type="submit" class="btn btn-default">{{buttonText}}</button>
+					
+				</form>
+	
+				<div class="table-responsive col-md-6">
+					<table class="table table-striped">
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Gender</th>
+							<th>Description</th>
+							<th></th>
+						</tr>
+						<tr data-ng-repeat="patient in patients">
+							<td>{{patient.name}}</td>
+							<td>{{patient.age}}</td>
+							<td>{{patient.gender}}</td>
+							<td>{{patient.description}}</td>
+							<td>
+								<button type="button" class="btn btn-default"
+									data-ng-click="updatePatientInit(patient)">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default"
+									data-ng-click="deletePatient(patient)">
+									<span class="glyphicon glyphicon-remove-circle"
+										aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Footer content -->
+	    <footer>
+	      <div class="container-fluid bg-dark">
+	        <div class="row">
+	          <div class="col-md-8 mx-auto">
+	            <p class="text-muted text-center mt-5">Copyright &copy; devansh 2020</p>
+	            <ul class="list-inline text-center">
+	              <li class="list-inline-item">
+		              <a href="https://github.com/devansh-299">
+		              	<i class="fa fa-github text-light"></i>
+		              </a>
+	              </li>
+	              <li class="list-inline-item">
+	              	<a href="https://www.linkedin.com/in/devansh-aggarwal-437967192/">
+	              		<i class="fa fa-linkedin text-light"></i>
+	              	</a>
+	              </li>
+	            </ul>
+	          </div>
+	        </div>
+	      </div>          
+	    </footer>
+	</body>
+</html>
