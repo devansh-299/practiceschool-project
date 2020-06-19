@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Patient Database</title>
+		<script type="text/javascript"
+			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+		<script type="text/javascript"
+			src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
+		<script type="text/javascript" src="app/app.js"></script>
+		<script type="text/javascript" src="app/controller.js"></script>
+		<script type="text/javascript" src="app/service.js"></script>
+		
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body data-ng-app="PatientApiApplication" data-ng-controller="GeneralController">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">Patients</div>
+			<div class="panel-body">
+				<form class="col-md-4" data-ng-submit="savePatient()">
+					<div class="form-group">
+						<label for="patientName">Patient Name</label> <input type="text"
+							data-ng-model="patient.name" class="form-control" id="patientName"
+							placeholder="Patient Name">
+					</div>
+					<div class="form-group">
+						<label for="patientAge">Age</label> <input type="text"
+							data-ng-model="patient.age" class="form-control"
+							id="patientAge" placeholder="Age">
+					</div>
+	
+					<div class="form-group">
+						<label for="patientGender">Gender</label> 
+						<input type="text"
+							data-ng-model="patient.gender" class="form-control"
+							id="patientGender" placeholder="Gender">
+					</div>
+					
+					<div class="form-group">
+						<label for="patientDescription">Description</label> 
+						<input type="text"
+							data-ng-model="patient.description" class="form-control"
+							id="patientDescription" placeholder="Description">
+					</div>
+	
+					<button type="submit" class="btn btn-default">{{buttonText}}</button>
+					
+				</form>
+	
+				<div class="table-responsive col-md-6">
+					<table class="table table-striped">
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Gender</th>
+							<th>Description</th>
+							<th></th>
+						</tr>
+						<tr data-ng-repeat="patient in patients">
+							<td>{{patient.name}}</td>
+							<td>{{patient.age}}</td>
+							<td>{{patient.gender}}</td>
+							<td>{{patient.description}}</td>
+							<td>
+								<button type="button" class="btn btn-default"
+									data-ng-click="updatePatientInit(patient)">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default"
+									data-ng-click="deletePatient(patient)">
+									<span class="glyphicon glyphicon-remove-circle"
+										aria-hidden="true"></span>
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+</html>

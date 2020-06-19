@@ -12,7 +12,7 @@
 	<artifactId>patient-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>patient-api</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Secure Database - With Vault</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -33,6 +33,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -44,8 +45,9 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>

@@ -28,9 +28,9 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public String addPatient(Patient patient) {
+	public Patient addPatient(Patient patient) {
 		patientDao.save(patient);
-		return "Created patient with id: " + patient.getId();
+		return patient;
 	}
 
 	@Override

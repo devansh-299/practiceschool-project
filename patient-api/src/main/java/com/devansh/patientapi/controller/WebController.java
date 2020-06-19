@@ -1,6 +1,7 @@
 package com.devansh.patientapi.controller;
 
 
+import java.net.URI;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ import com.devansh.patientapi.model.Patient;
 import com.devansh.patientapi.service.PatientService;
 
 @RestController
-@RequestMapping("/patientapi")
+@RequestMapping("/api")
 public class WebController {
 	
 	@Autowired
@@ -30,14 +31,21 @@ public class WebController {
 	}
 	
 	@GetMapping("/patients/{patientId}")
-	public Patient getCoursePatient(@PathVariable String patientId) {
+	public Patient getPatient(@PathVariable String patientId) {
 		return patientService.getCourse(Long.parseLong(patientId));
 	}
 	
 	@PostMapping("/patients")
-	public String addPatient(@RequestBody Patient patient) {
-		return patientService.addPatient(patient);
-	}
+	public ResponseEntity<Patient> addPatient(@RequestBody Patient newPatient) {
+		try {
+			Patient patient = patientService.addPatient(newPatient);
+			long patientId = patient.getId();
+			return ResponseEntity.created(new URI("/api/patients/" + patientId)).body(patient);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return new ResponseEntity<Patient>(HttpStatus.CONFLICT);
+		}
+		}
 	
 	@PutMapping("/patients")
 	public String updatePatient(@RequestBody Patient patient) {
