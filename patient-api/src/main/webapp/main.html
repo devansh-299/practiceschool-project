@@ -6,7 +6,7 @@
 		
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.5, shrink-to-fit=no">
     	
 		<!-- Bootstrap CSS -->
     	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
@@ -31,38 +31,33 @@
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet"
 			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		
-
-		
-		 <!-- custom styling -->
-    	<link rel="stylesheet" href="css/style.css">
-
-
-
+			
+		<!-- custom styling -->
+		<link rel="stylesheet" href="css/style.css">
 			
 	</head>
 	
 	<body data-ng-app="PatientApiApplication" data-ng-controller="GeneralController">
 	
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-     		 <!-- container is a built-in bootstrap class -->
+			<!-- container is a built-in bootstrap class -->
 			<div class="container">
-		        <!-- Default bootstrap class for Main Company Icon/Name -->
-		        <a href="index.html" class="navbar-brand">National Informatics Centre</a>
+				<!-- Default bootstrap class for Main Company Icon/Name -->
+				<a href="index.html" class="navbar-brand">National Informatics Centre</a>
 		
-		        <!-- for the toggle menu button -->
-		        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navitems">
-		          <!-- for the toggler icon -->
-		          <span class="navbar-toggler-icon"></span>
+				<!-- for the toggle menu button -->
+				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navitems">
+		  		<!-- for the toggler icon -->
+				<span class="navbar-toggler-icon"></span>
 		        </button>
 		
-		        <div class="collapse navbar-collapse" id="navitems">
-		          <ul class="navbar-nav ml-auto">
-		            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-		            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-		          </ul>
+				<div class="collapse navbar-collapse" id="navitems">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+						<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+					</ul>
 				</div>
-	      </div>
+		     </div>
 		</nav>
 	
 		<header class="headermain">
@@ -71,7 +66,6 @@
 					<div class="col-md-8 mx-auto ">
           				<!-- headingtext is the name of custom class -->
           				<div class ="display-4 headingtext"> Secure Patient Database </div>
-          				<span class="text-muted">Developed by - Devansh</span>
         			</div>
         		</div>
       		</div>
@@ -107,7 +101,7 @@
 							id="patientDescription" placeholder="Description">
 					</div>
 	
-					<button type="submit" class="btn btn-default">{{buttonText}}</button>
+					<button type="submit" class="btn btn-primary">{{buttonText}}</button>
 					
 				</form>
 	
@@ -126,7 +120,7 @@
 							<td>{{patient.gender}}</td>
 							<td>{{patient.description}}</td>
 							<td>
-								<button type="button" class="btn btn-default"
+								<button type="button" class="btn btn-primary"
 									data-ng-click="updatePatientInit(patient)">
 									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 								</button>
@@ -164,5 +158,6 @@
 	        </div>
 	      </div>          
 	    </footer>
+	    
 	</body>
 </html>

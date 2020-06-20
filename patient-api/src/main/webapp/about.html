@@ -1,119 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.5, shrink-to-fit=no">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+		crossorigin="anonymous">
+		
+		<!-- Font Awesome CDN-->
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+		rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+		crossorigin="anonymous">
+		
+		<title>NIC-AboutUs</title>
+		
+		<!-- custom styling -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- Font Awesome CDN-->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
-    crossorigin="anonymous">
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		
+			<!-- container is a built-in bootstrap class -->
+			<div class="container">
+			
+			      <!-- Default bootstrap class for Main Company Icon/Name -->
+				<a href="index.html" class="navbar-brand">National Informatics Centre</a>
+				
+				<!-- for the toggle menu button -->
+				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navitems">
+				  <!-- for the toggler icon -->
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="collapse navbar-collapse" id="navitems">
+					<ul class="navbar-nav ml-auto">
+					  <li class="nav-item"><a href="main.html" class="nav-link">Home</a></li>
+					  <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+					</ul>
+				</div>
+			</div>
+    	</nav>
+
+		<header class="headermainabout mt-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 mx-auto ">
+					  <!-- headingtext is the name of custom class -->
+					  <div class ="display-4 headingtext">About Project</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+    	<!-- Main content -->
+		<div class="container">
+			<h1 class="">Details</h1>
+	
+			<div class="container">
+	        <div class="row mb-5 mt-5">
+				<div class="col-md-7">
+					<span class="h3">Technologies Used</span><hr>
+					<p>The following technologies/frameworks were used while developing this project:</p>
+					<ul class="list-group">
+					  <li class="list-group-item">Spring Boot</li>
+					  <li class="list-group-item">Hibernate</li>
+					  <li class="list-group-item">MySQL</li>
+					  <li class="list-group-item">HashiCorp© Vault</li>
+					  <li class="list-group-item">AngularJs</li>
+					</ul>
+				</div>
+				<div class="col-md-5 mt-5">
+					<img class="img-fluid" src="img/about_art1.png">
+				</div>
+			</div>
+			
+	        <div class="row">
+				<div class="col-md-7">
+		            <span class="h3">Project Team</span>
+		            <ul class="list-group">
+						<li class="list-group-item">Abhishek Mehta - PS Faculty</li>
+						<li class="list-group-item">Mr. Mridu Pobon Rajkhowa - Mentor</li>
+						<li class="list-group-item">Ms. Arti Garg - Mentor</li>
+						<li class="list-group-item">Devansh Aggarwal - Student</li>
+		            </ul>
+				</div>
+				
+				<div class="col-md-5 mt-5">
+					<img class="img-fluid" src="img/about_art2.png">
+				</div>
+	        </div>
+	      </div>
+	    </div>
+	
+		<!-- Footer content -->
+		<footer class = "mt-5">
+		  <div class="container-fluid bg-dark">
+		    <div class="row">
+		      <div class="col-md-8 mx-auto">
+		        <p class="text-muted text-center mt-5">Copyright &copy; devansh 2020</p>
+		        <ul class="list-inline text-center">
+		          <li class="list-inline-item">
+		           <a href="https://github.com/devansh-299">
+		           	<i class="fa fa-github text-light"></i>
+		           </a>
+		          </li>
+		          <li class="list-inline-item">
+		          	<a href="https://www.linkedin.com/in/devansh-aggarwal-437967192/">
+		          		<i class="fa fa-linkedin text-light"></i>
+		          	</a>
+		          </li>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>          
+		</footer>
+	
+	    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+	    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+	    crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+	    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+	    crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+	    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+	    crossorigin="anonymous"></script>
     
-    <title>NIC-AboutUs</title>
-
-    <!-- custom styling -->
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-
-
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-
-      <!-- container is a built-in bootstrap class -->
-      <div class="container">
-
-        <!-- Default bootstrap class for Main Company Icon/Name -->
-        <a href="index.html" class="navbar-brand">National Informatics Centre</a>
-
-        <!-- for the toggle menu button -->
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navitems">
-          <!-- for the toggler icon -->
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navitems">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="main.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header class="headermainabout mt-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 mx-auto ">
-            <!-- headingtext is the name of custom class -->
-            <div class ="display-4 headingtext"> About Us</div>
-            <span class="text-muted">Developed by - Devansh</span>
-          </div>
-          
-        </div>
-      </div>
-    </header>
-
-    <!-- Main content -->
-    <div class="container">
-      <h1 class="">About Page</h1>
-      <small class=""> . </small>
-
-      <div class="container">
-        <div class="row mb-5 mt-5">
-          <div class="col-md-7">
-            <span class="h3">Some Heading</span><hr>
-            <p> Here you can add some content about your company </p>
-            <ul class="list-group">
-              <li class="list-group-item">The First Item</li>
-              <li class="list-group-item">The Second Item</li>
-              <li class="list-group-item">The Third Item</li>
-              <li class="list-group-item">The Fourth Item</li>
-            </ul>
-          </div>
-          <div class="col-md-5 mt-5">
-            <img class="img-fluid" src="img/img1_home.jpg">
-          </div>
-        </div>
-        <hr>
-        <div class="row mb-5 mt-5">
-           <div class="col-md-7">
-            <span class="h3">Some Details</span><hr>
-            <p>  Here you can add some details about your company. </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer content -->
-    <footer>
-      <div class="container-fluid bg-dark">
-        <div class="row">
-          <div class="col-md-8 mx-auto">
-            <p class="text-muted text-center mt-5">Copyright &copy; devansh 2020</p>
-            <ul class="list-inline text-center">
-              <li class="list-inline-item"><a href=""><i class="fa fa-linkedin text-light"></i></a></li>
-              <li class="list-inline-item"><a href=""><i class="fa fa-github text-light"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>          
-    </footer>
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
-    crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
-    crossorigin="anonymous"></script>
   </body>
 </html>
