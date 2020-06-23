@@ -12,15 +12,18 @@ public class Patient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
-	private long age;
+	private String age;
+	private String mobileNumber;
 	private String gender;
 	private String description;
 	
-	public Patient(long id, String name, long age, String gender, String description) {
+	public Patient(long id, String name, String age, String mobileNUmber, 
+			String gender, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
+		this.mobileNumber = mobileNUmber;
 		this.gender = gender;
 		this.description = description;
 	}
@@ -42,12 +45,19 @@ public class Patient {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(long age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	
 	public String getGender() {
 		return gender;
 	}
