@@ -27,39 +27,43 @@ public class WebController {
 	@Autowired
 	private PatientService patientService;
 	
-	 @Autowired
-	 private CallVault vaultService;
+	@Autowired
+	private CallVault vaultService;
 	
+	/*
+	 * APIs
+	 */
 	@GetMapping("/patients")
 	public List<Patient> getPatients() {
-		return patientService.getPatients();
+		List<Patient> patientsList = patientService.getPatients();
+		try {
+			for (Patient patient : patientsList) {
+				String decryptedMobileNumber = getPlainText(patient.getMobileNumber());
+				patient.setMobileNumber(decryptedMobileNumber);
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		return patientsList;
 	}
 	
 	@GetMapping("/patients/{patientId}")
 	public Patient getPatient(@PathVariable String patientId) {
-		return patientService.getCourse(Long.parseLong(patientId));
+		Patient patient =  patientService.getPatient(Long.parseLong(patientId));
+		try {
+			String decryptedMobileNumber = getPlainText(patient.getMobileNumber());
+			patient.setMobileNumber(decryptedMobileNumber);
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			patient.setMobileNumber("00");
+		}
+		return patient;
 	}
 	
 	@PostMapping("/patients")
 	public ResponseEntity<Patient> addPatient(@RequestBody Patient newPatient) {
-		
 		try {
-			// converting to base64
-			String encodedMobileNumber = Base64.getEncoder().encodeToString(
-					newPatient.getMobileNumber().getBytes());
-			
-			// receiving encrypted value from Vault
-			CompletableFuture<String> asyncMobileNumber = 
-					vaultService.encryptData(encodedMobileNumber);
-			
-			CompletableFuture.allOf(asyncMobileNumber).join();
-			
-			String encryptedMobileNumber = asyncMobileNumber.get();
-			if (encryptedMobileNumber == null) {
-				System.out.println("Vault Encryption Response is null");
-				// default mobile number 
-				encryptedMobileNumber = "0";
-			}
+			String encryptedMobileNumber = getCipherText(newPatient.getMobileNumber());
 
 			newPatient.setMobileNumber(encryptedMobileNumber);
 			// saving the patient in database
@@ -75,7 +79,14 @@ public class WebController {
 	
 	@PutMapping("/patients")
 	public String updatePatient(@RequestBody Patient patient) {
-		return patientService.updatePatient(patient);
+		try {
+			String encryptedMobileNumber = getCipherText(patient.getMobileNumber());
+
+			patient.setMobileNumber(encryptedMobileNumber);
+			return patientService.updatePatient(patient);
+		} catch (Exception e) {
+			return "Error Occured";
+		}
 	}
 	
 	@DeleteMapping("/patients/{patientId}")
@@ -88,29 +99,51 @@ public class WebController {
 		}
 	}
 	
-	@PostMapping("/patients/decryptData")
-	public String decryptData(@RequestBody Patient patient) {
-		// default mobile number 
-		String mobileNumber = "0";
+	/*
+	 * Calling Vault Services
+	 */
+	private String getCipherText(String plainText) throws Exception {
+		// default value 
+		String cipherText = "00";
+		// converting to base64
+		String encodedData = Base64.getEncoder().encodeToString(plainText.getBytes());
+		
+		// calling vault service
+		CompletableFuture<String> asyncData = vaultService.encryptData(encodedData);
+		
+		// waiting for response
+		CompletableFuture.allOf(asyncData).join();
+		
+		cipherText = asyncData.get();
+		if (cipherText == null) {
+			System.out.println("Vault Encryption Response is null");
+			// default mobile number 
+			cipherText = "00";
+		}
+		
+		return cipherText;
+	}
+	
+	private String getPlainText(String cipherText) throws Exception {
+		// default value
+		String plainText = "00";
 		try {
 			// receiving decrypted value from Vault
-			CompletableFuture<String> asyncEncodedMobileNumber = 
-					vaultService.decryptData(patient.getMobileNumber());
+			CompletableFuture<String> asyncData = vaultService.decryptData(cipherText);
 			
-			CompletableFuture.allOf(asyncEncodedMobileNumber).join();
+			// waiting for completion
+			CompletableFuture.allOf(asyncData).join();
 			
-			String encodedMobileNumber = asyncEncodedMobileNumber.get();
-			if (encodedMobileNumber == null) {
-				System.out.println("Vault Decryption Response is null");
-			} 
-			mobileNumber = new String(
-					Base64.getDecoder().decode(encodedMobileNumber));
-			
-			return mobileNumber;
-			
+			String encodedData = asyncData.get();
+			if (encodedData != null) {
+				plainText = new String(Base64.getDecoder().decode(encodedData));
+			} else {
+				System.out.println("No Response from Vault");
+			}
 		} catch (Exception e) {
 			System.out.println("ERROR: " + e.toString());
-			return mobileNumber;
 		}
+		return plainText;
 	}
+	
 }

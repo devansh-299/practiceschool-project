@@ -8,7 +8,7 @@ public interface PatientService {
 
 	public List<Patient> getPatients();
 
-	public Patient getCourse(long parseLong);
+	public Patient getPatient(long parseLong);
 
 	public Patient addPatient(Patient patient);
 

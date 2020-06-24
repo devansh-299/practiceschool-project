@@ -28,10 +28,6 @@
 		<script type="text/javascript" src="app/service.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-			
 		<!-- custom styling -->
 		<link rel="stylesheet" href="css/style.css">
 			
@@ -43,7 +39,9 @@
 			<!-- container is a built-in bootstrap class -->
 			<div class="container">
 				<!-- Default bootstrap class for Main Company Icon/Name -->
-				<a href="index.html" class="navbar-brand">National Informatics Centre</a>
+				<a href="index.html" class="navbar-brand">
+					<img alt="" src="icon/home.png" width="30" height="25">
+				</a>
 		
 				<!-- for the toggle menu button -->
 				<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navitems">
@@ -53,7 +51,7 @@
 		
 				<div class="collapse navbar-collapse" id="navitems">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Database</a></li>
 						<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 					</ul>
 				</div>
@@ -73,7 +71,8 @@
 	
 		<!-- Main content -->
 		<div class="panel panel-default">
-
+			<h2 class="subTitle"> Enter Patient Details</h2>
+			<hr>
 			<div class="panel-body">
 				<form class="col-md-4" data-ng-submit="savePatient()">
 					<div class="form-group">
@@ -110,7 +109,9 @@
 					<button type="submit" class="btn btn-primary">{{buttonText}}</button>
 					
 				</form>
-	
+				<hr>
+				<br>
+				<h2 class="subTitle">Database</h2>
 				<div class="table-responsive col-md-6">
 					<table class="table table-striped">
 						<tr>
@@ -130,12 +131,11 @@
 							<td>
 								<button type="button" class="btn btn-primary"
 									data-ng-click="updatePatientInit(patient)">
-									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									<img src="icon/edit.png" width="20" height="20">
 								</button>
 								<button type="button" class="btn btn-default"
 									data-ng-click="deletePatient(patient)">
-									<span class="glyphicon glyphicon-remove-circle"
-										aria-hidden="true"></span>
+									<img src="icon/delete.png" width="20" height="20">
 								</button>
 							</td>
 						</tr>
@@ -145,7 +145,7 @@
 		</div>
 		
 		<!-- Footer content -->
-	    <footer>
+	    <footer class="mt-5">
 	      <div class="container-fluid bg-dark">
 	        <div class="row">
 	          <div class="col-md-8 mx-auto">

@@ -21,7 +21,7 @@ public class CallVault {
 	
 	@Bean
 	public RestTemplate restTemplate() {
-		 String vaultRootToken = "s.XUaDFW8HYaTgjI6m5k5JK83M";
+		 String vaultRootToken = "s.2oU9Llccabex4lEDOJHfNFhF";
 		 return restTemplate = new RestTemplateBuilder(
 				 rt-> rt.getInterceptors().add((request, body, execution) -> {
 					 request.getHeaders().add("X-Vault-Token",vaultRootToken);
